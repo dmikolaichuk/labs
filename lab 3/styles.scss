@@ -1,0 +1,214 @@
+// ==========================================================
+// Лабораторна робота №3 — Адаптивна верстка (CSS Grid + SCSS)
+// ==========================================================
+
+// ---------- 1. Змінні: кольори ----------
+$primary-color: #8b1a2f;
+$secondary-color: #f4f1ec;
+$text-color: #222222;
+$muted-color: #6b6b6b;
+$white-color: #ffffff;
+
+// ---------- 2. Змінні: шрифти та відступи ----------
+$font-family-base: "Segoe UI", Roboto, Arial, sans-serif;
+$font-size-small: 14px;
+$font-size-base: 16px;
+$font-size-card-title: 17px;
+$font-size-h1: 22px;
+$font-size-h2: 26px;
+$gap: 16px;
+
+// ---------- 3. Мапа брейкпоінтів ----------
+$breakpoints: (
+  mobile: 576px,
+  tablet: 768px,
+  desktop: 1024px
+);
+
+// ---------- 4. Міксини ----------
+@mixin respond-to($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (min-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  } @else {
+    @warn "Невідомий брейкпоінт: #{$breakpoint}";
+  }
+}
+
+@mixin card-shadow($opacity: 0.12) {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, $opacity);
+}
+
+// ---------- 5. Базові стилі ----------
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  color: $text-color;
+  background-color: $secondary-color;
+  line-height: 1.5;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+// ---------- 6. Header ----------
+.header {
+  background-color: $primary-color;
+  color: $white-color;
+
+  &__inner {
+    display: grid;
+    grid-template-columns: 1fr;      // mobile: 1 колонка
+    row-gap: 8px;
+    padding: 12px $gap;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    @include respond-to(mobile) {
+      padding: 14px 24px;
+    }
+
+    @include respond-to(tablet) {    // tablet: 2 колонки (лого | меню)
+      grid-template-columns: 1fr 2fr;
+      align-items: center;
+      column-gap: $gap;
+    }
+
+    @include respond-to(desktop) {   // desktop: 4 колонки
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      padding: 18px 32px;
+    }
+  }
+
+  &__logo {
+    font-size: $font-size-h1;
+    font-weight: 700;
+  }
+
+  &__nav {
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 20px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    a {
+      font-size: $font-size-small;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    @include respond-to(desktop) {
+      grid-column: 2 / 5;            // меню займає колонки 2–4
+      justify-self: end;
+    }
+  }
+}
+
+// ---------- 7. Main ----------
+.main-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px $gap 32px;
+
+  @include respond-to(desktop) {
+    padding: 28px 32px 40px;
+  }
+}
+
+.news {
+  &__title {
+    margin: 0 0 $gap;
+    font-size: $font-size-h2;
+    color: $primary-color;
+  }
+
+  &__more {
+    display: inline-block;
+    margin-top: 24px;
+    color: $primary-color;
+    font-weight: 600;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+// ---------- 8. Сітка новин (CSS Grid) ----------
+.news-grid {
+  display: grid;
+  grid-template-columns: 1fr;                 // mobile: <768px — 1 колонка
+  gap: $gap;
+
+  @include respond-to(tablet) {               // tablet: 768–1023px — 2 колонки
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond-to(desktop) {              // desktop: ≥1024px — 4 колонки
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+// ---------- 9. Картка новини ----------
+.news-card {
+  display: flex;
+  flex-direction: column;
+  background-color: $white-color;
+  border-radius: 6px;
+  overflow: hidden;
+  @include card-shadow;
+
+  &:hover {
+    @include card-shadow(0.25);
+  }
+
+  &__img {
+    aspect-ratio: 16 / 9;
+    background: linear-gradient(135deg, $primary-color, lighten($primary-color, 25%));
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 12px 14px 16px;
+  }
+
+  &__date {
+    font-size: $font-size-small;
+    color: $muted-color;
+  }
+
+  &__title {
+    margin: 6px 0 0;
+    font-size: $font-size-card-title;
+    line-height: 1.35;
+
+    a:hover {
+      color: $primary-color;
+    }
+  }
+}
+
+// ---------- 10. Footer ----------
+.footer {
+  padding: 16px;
+  text-align: center;
+  font-size: $font-size-small;
+  color: $white-color;
+  background-color: $primary-color;
+}

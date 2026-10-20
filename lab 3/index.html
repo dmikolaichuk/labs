@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lab 3 — Новини університету (CSS Grid + SCSS)</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header__inner">
+      <div class="header__logo">Львівська політехніка</div>
+      <nav class="header__nav" aria-label="Головна навігація">
+        <ul>
+          <li><a href="#">Політехніка</a></li>
+          <li><a href="#">Інститути</a></li>
+          <li><a href="#">Освіта</a></li>
+          <li><a href="#">Наука</a></li>
+          <li><a href="#">Вступнику</a></li>
+          <li><a href="#">Студенту</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="main-container">
+    <main>
+      <section class="news">
+        <h2 class="news__title">Новини університету</h2>
+        <div class="news-grid">
+        <article class="news-card">
+          <div class="news-card__img" role="img" aria-label="Заставка до новини"></div>
+          <div class="news-card__body">
+            <time class="news-card__date">19 жовт. 2026, 16:41</time>
+            <h3 class="news-card__title"><a href="#">Запрошуємо освітян на відкриту подію від Глобального договору ООН в Україні</a></h3>
+          </div>
+        </article>
+        <article class="news-card">
+          <div class="news-card__img" role="img" aria-label="Заставка до новини"></div>
+          <div class="news-card__body">
+            <time class="news-card__date">19 жовт. 2026, 14:45</time>
+            <h3 class="news-card__title"><a href="#">Науковиці Львівської політехніки увійшли до ТОП-10 фіналісток Премії L’Oréal–UNESCO «Для жінок у науці» 2026 року</a></h3>
+          </div>
+        </article>
+        <article class="news-card">
+          <div class="news-card__img" role="img" aria-label="Заставка до новини"></div>
+          <div class="news-card__body">
+            <time class="news-card__date">19 жовт. 2026, 11:32</time>
+            <h3 class="news-card__title"><a href="#">Відбір студентів та аспірантів Львівської політехніки на стажування у компанії NanoFrontier</a></h3>
+          </div>
+        </article>
+        <article class="news-card">
+          <div class="news-card__img" role="img" aria-label="Заставка до новини"></div>
+          <div class="news-card__body">
+            <time class="news-card__date">19 жовт. 2026, 11:15</time>
+            <h3 class="news-card__title"><a href="#">Запрошує заповнити реєстраційну форму, щоб взяти участь у конкурсі студентських проєктів від ЛОДА</a></h3>
+          </div>
+        </article>
+        <article class="news-card">
+          <div class="news-card__img" role="img" aria-label="Заставка до новини"></div>
+          <div class="news-card__body">
+            <time class="news-card__date">19 жовт. 2026, 10:00</time>
+            <h3 class="news-card__title"><a href="#">Кафедра фінансів на міжнародному форумі FinTech</a></h3>
+          </div>
+        </article>
+        <article class="news-card">
+          <div class="news-card__img" role="img" aria-label="Заставка до новини"></div>
+          <div class="news-card__body">
+            <time class="news-card__date">19 жовт. 2026, 09:20</time>
+            <h3 class="news-card__title"><a href="#">У Львівській політехніці відбудеться презентація грантового проєкту «Реставраційна майстерня «Pfister RestSculptyres»</a></h3>
+          </div>
+        </article>
+        <article class="news-card">
+          <div class="news-card__img" role="img" aria-label="Заставка до новини"></div>
+          <div class="news-card__body">
+            <time class="news-card__date">16 жовт. 2026, 16:38</time>
+            <h3 class="news-card__title"><a href="#">Доцент катедри УМ досліджував зимову обрядовість Бойківщини під час етнографічної експедиції</a></h3>
+          </div>
+        </article>
+        <article class="news-card">
+          <div class="news-card__img" role="img" aria-label="Заставка до новини"></div>
+          <div class="news-card__body">
+            <time class="news-card__date">16 жовт. 2026, 16:13</time>
+            <h3 class="news-card__title"><a href="#">Діалоги з Мартою Фаріон. Шлях і справа українки у США</a></h3>
+          </div>
+        </article>
+        <article class="news-card">
+          <div class="news-card__img" role="img" aria-label="Заставка до новини"></div>
+          <div class="news-card__body">
+            <time class="news-card__date">16 жовт. 2026, 15:50</time>
+            <h3 class="news-card__title"><a href="#">«В інституті дуже багато практичних можливостей»: Денис Мельник про масштаб ІКТА, досвід у профбюро та цілі команди</a></h3>
+          </div>
+        </article>
+        <article class="news-card">
+          <div class="news-card__img" role="img" aria-label="Заставка до новини"></div>
+          <div class="news-card__body">
+            <time class="news-card__date">16 жовт. 2026, 15:15</time>
+            <h3 class="news-card__title"><a href="#">Студентка кафедри ПМВ Руслана Кістечок здобула ІІ місце у VI Всеукраїнському конкурсі наукових студентських робіт</a></h3>
+          </div>
+        </article>
+        <article class="news-card">
+          <div class="news-card__img" role="img" aria-label="Заставка до новини"></div>
+          <div class="news-card__body">
+            <time class="news-card__date">16 жовт. 2026, 14:00</time>
+            <h3 class="news-card__title"><a href="#">Отець Михайло Пазиняк про шлях від Львівської політехніки до священства і служіння родинам</a></h3>
+          </div>
+        </article>
+        <article class="news-card">
+          <div class="news-card__img" role="img" aria-label="Заставка до новини"></div>
+          <div class="news-card__body">
+            <time class="news-card__date">16 жовт. 2026, 12:52</time>
+            <h3 class="news-card__title"><a href="#">Львівська політехніка презентувала свої освітні програми на ярмарку кар’єри у Ботсвані</a></h3>
+          </div>
+        </article>
+        </div>
+        <a class="news__more" href="#">Усі новини &rarr;</a>
+      </section>
+    </main>
+  </div>
+
+  <footer class="footer">
+    &copy; Лабораторна робота №3 — навчальна верстка за мотивами lpnu.ua
+  </footer>
+</body>
+</html>
